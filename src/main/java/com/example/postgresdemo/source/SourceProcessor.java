@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+@Deprecated
 public class SourceProcessor implements Runnable {
 
     private static Logger log = LoggerFactory.getLogger(SourceProcessor.class);
@@ -21,13 +22,7 @@ public class SourceProcessor implements Runnable {
 
     @Override
     public void run() {
-        try (Stream<Path> paths = Files.walk(Paths.get(source.getPath()))) {
-            paths
-                    .filter(Files::isRegularFile)
-                    .forEach(file -> log.debug(file.getFileName().toString()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public PhotoFileSource getSource() {
