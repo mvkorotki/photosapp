@@ -28,13 +28,6 @@ public class PostgresDemoApplication {
 		log.debug("Initializing sources monitoring");
 		SourcesMonitor srcmon = context.getBean(SourcesMonitor.class);
 		srcmon.initSourcesMonitoring();
-		try {
-			log.debug("Starting monitoring thread");
-			srcmon.startMonitoringThread();
-			log.debug("Monitoring thread running");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Bean
